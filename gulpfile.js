@@ -97,4 +97,4 @@ gulp.task('test', function() {
         .pipe(mocha({reporter: 'nyan'}))
 });
 
-gulp.task('default', ['connect', 'html', 'scripts', 'sass', 'images', 'watch']);
+gulp.task('default', ['connect', 'html', 'scripts', 'sass', 'images', 'fonts', 'watch']);
