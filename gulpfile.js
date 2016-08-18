@@ -45,7 +45,7 @@ gulp.task('js', function() {
 
 gulp.task('sass', function() {
 
-    return gulp.src('src/scss/**/*.scss')
+    return gulp.src('src/scss/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('dist/css'))
         .pipe(livereload());
