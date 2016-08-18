@@ -1,8 +1,8 @@
 {
   "deploy": "dist",
   "source": {
-    "scripts"    : "src/js",
     "styles"     : "src/scss",
+    "scripts"    : "src/js",
     "images"     : "src/img",
     "fonts"      : "src/fonts",
     "html"       : "src"
