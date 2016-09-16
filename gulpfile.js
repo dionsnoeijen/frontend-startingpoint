@@ -15,8 +15,11 @@ var gulp       = require('gulp'),
     gutil      = require('gulp-util'),
     mocha      = require('gulp-mocha'),
     livereload = require('gulp-livereload'),
+    sourcemaps = require('gulp-sourcemaps'),
 
     paths      = require('./paths.json');
+
+require('babel-core/register');
 
 gulp.task('html', function() {
 
@@ -25,7 +28,7 @@ gulp.task('html', function() {
         .pipe(livereload());
 });
 
-gulp.task('scripts', ['js', 'test']);
+gulp.task('scripts', ['js']);
 
 gulp.task('js', function() {
 
@@ -41,6 +44,7 @@ gulp.task('js', function() {
         })
         .pipe(source('app.js'))
         .pipe(buffer())
+        .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(uglify())
         .pipe(gulp.dest(paths.dest.scripts))
         .pipe(livereload());
@@ -94,7 +98,7 @@ gulp.task('images', function() {
 gulp.task('test', function() {
 
     return gulp.src(paths.source.scripts + '/tests/*.js', {read: false})
-        .pipe(mocha({reporter: 'nyan'}))
+        .pipe(mocha({reporter: 'nyan'}));
 });
 
 gulp.task('default', ['connect', 'html', 'scripts', 'sass', 'images', 'fonts', 'watch']);

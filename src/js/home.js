@@ -1,12 +1,12 @@
 'use strict';
 
-var Header = require('./header');
+//import Header from './header';
 
-module.exports = class {
+class Home {
 
     constructor() {
         this.name = 'HENKIE';
-        this.header = new Header();
+        //this.header = new Header();
     }
 
     greet() {
@@ -14,3 +14,5 @@ module.exports = class {
         return this.name;
     }
 }
+
+export default Home;

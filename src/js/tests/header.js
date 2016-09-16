@@ -1,6 +1,5 @@
-var assert = require('assert');
-
-var Header = require('./../header');
+import assert from 'assert';
+import Header from './../header';
 
 describe('Home', function() {
     describe('#greet()', function() {

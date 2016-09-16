@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = class {
+class Header {
 
     constructor() {
 
@@ -12,3 +12,5 @@ module.exports = class {
         return this.name;
     }
 }
+
+export default Header;

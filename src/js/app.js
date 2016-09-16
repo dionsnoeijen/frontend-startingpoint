@@ -1,6 +1,6 @@
 'use strict';
 
-var Home = require('./home');
+import Home from './home';
 
 class App {
 

@@ -1,6 +1,5 @@
-var assert = require('assert');
-
-var Home = require('./../home');
+import assert from 'assert';
+import Home from './../home';
 
 describe('Home', function() {
     describe('#greet()', function() {
