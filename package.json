@@ -1,7 +1,7 @@
 {
-  "name": "mw-website",
+  "name": "frontend-startingpoint",
   "version": "1.0.0",
-  "description": "MyWorkspace website",
+  "description": "Dit is de omschrijving",
   "main": "index.js",
   "scripts": {
     "test": "echo 'No test'"
