@@ -23,9 +23,11 @@ var gulp       = require('gulp'),
 // Wee need babel core for mocha, transforms code before testing
 require('babel-core/register');
 
-/**
- * Cook up my html please
- */
+
+gulp.task('copy', function() {
+    gulp.src(['favicon.ico'], {cwd: paths.source.html}).pipe(gulp.dest('dist'));
+});
+
 gulp.task('html', function() {
 
     return gulp.src(paths.source.html + '/*.html')
@@ -33,9 +35,6 @@ gulp.task('html', function() {
         .pipe(livereload());
 });
 
-/**
- *
- */
 gulp.task('scripts', ['js']);
 
 gulp.task('js', function() {
@@ -112,4 +111,4 @@ gulp.task('test', function() {
         .pipe(mocha({reporter: 'nyan'}));
 });
 
-gulp.task('default', ['connect', 'html', 'js', 'sass', 'images', 'fonts', 'watch']);
+gulp.task('default', ['connect', 'html', 'js', 'sass', 'images', 'copy', 'fonts', 'watch']);
