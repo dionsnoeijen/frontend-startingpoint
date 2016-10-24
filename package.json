@@ -1,7 +1,7 @@
 {
   "name": "frontend-startingpoint",
   "version": "1.0.0",
-  "description": "Dit is de omschrijving",
+  "description": "Frontend startingpoint",
   "main": "index.js",
   "scripts": {
     "test": "echo 'No test'"
@@ -22,6 +22,7 @@
     "gulp-imagemin": "^3.0.3",
     "gulp-livereload": "^3.8.1",
     "gulp-mocha": "^3.0.1",
+    "gulp-plumber": "^1.1.0",
     "gulp-sass": "^2.3.2",
     "gulp-size": "^2.1.0",
     "gulp-sourcemaps": "^1.6.0",

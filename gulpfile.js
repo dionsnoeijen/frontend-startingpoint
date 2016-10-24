@@ -16,6 +16,7 @@ var gulp       = require('gulp'),
     mocha      = require('gulp-mocha'),
     livereload = require('gulp-livereload'),
     sourcemaps = require('gulp-sourcemaps'),
+    plumber    = require('gulp-plumber'),
 
     paths      = require('./paths.json');
 
@@ -49,10 +50,12 @@ gulp.task('js', function() {
         .on('error', function(e) {
             gutil.log(e);
         })
+        .pipe(plumber())
         .pipe(source('app.js'))
         .pipe(buffer())
-        .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(uglify())
+        .pipe(sourcemaps.init({loadMaps: true}))
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(paths.dest.scripts))
         .pipe(livereload());
 });
@@ -60,10 +63,11 @@ gulp.task('js', function() {
 gulp.task('sass', function() {
 
     return gulp.src(paths.source.styles + '/*.scss')
+        .pipe(plumber())
         .pipe(sass({
             outputStyle: 'compressed',
             precision: 5
-        }).on('error', sass.logError))
+        }))
         .pipe(gulp.dest(paths.dest.styles))
         .pipe(livereload());
 });
@@ -73,7 +77,7 @@ gulp.task('watch', function() {
     livereload.listen();
 
     gulp.watch(paths.source.html + '/*.html', ['html']);
-    gulp.watch(paths.source.scripts + '/*.js', ['scripts']);
+    gulp.watch(paths.source.scripts + '/**/*.js', ['scripts']);
     gulp.watch(paths.source.styles + '/**/*.scss', ['sass']);
 });
 
