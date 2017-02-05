@@ -4,7 +4,7 @@
   "description": "Frontend startingpoint",
   "main": "index.js",
   "scripts": {
-    "test": "echo 'No test'"
+    "test": "mocha --compilers js:babel-core/register ./src/js/tests/*.dist.js"
   },
   "author": "Dion Snoeijen",
   "license": "ISC",
